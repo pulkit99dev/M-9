@@ -9,5 +9,7 @@ let homeController = require('../controllers/home_controller')
 router.get('/', homeController.home);
 router.use('/user', require('./users'));
 
+
+
 console.log('router loaded');
 module.exports = router;

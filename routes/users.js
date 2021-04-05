@@ -6,8 +6,10 @@ let userController = require('../controllers/user_controller');
 
 router.get('/profile', userController.user);
 
-router.get('/Log-in', userController.signIn);
+router.get('/log-in', userController.signIn);
 
 router.get('/sign-up', userController.signUp);
+
+router.post('/create', userController.create);
 
 module.exports = router;

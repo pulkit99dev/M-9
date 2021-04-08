@@ -1,5 +1,7 @@
-body{
-    color: aqua;
-    background-color: black;
-    text-align: center;
-}
+body {
+  color: aqua;
+  background-color: black;
+  text-align: center; }
+
+#layout {
+  height: 100%; }

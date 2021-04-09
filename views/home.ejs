@@ -3,20 +3,55 @@
 
 <div>
   <h2>POST</h2>
-  <% if (locals.user) { %>
-  <form action="/post/create" method="post">
-    <textarea name="content" cols="30" rows="10" placeholder="Write here...." required></textarea>
-    <button type="submit">Post</button>
-  </form>
-  <% } %>
-</div>
-<div>
-    <ul>
-    <% for (post of posts) { %>
+  <section>
+    <div>
+      <% if (locals.user) { %>
+      <form action="/post/create" method="post">
+        <textarea
+          name="content"
+          cols="30"
+          rows="3"
+          placeholder="Write here...."
+          required
+        ></textarea>
+        <button type="submit">Post</button>
+      </form>
+      <% } %>
+    </div>
+    <div>
+      <ul>
+        <% for (post of posts) { %>
         <li>
-            <p><%= post.content %></p>
-            <p><%= post.user.name %></p>
+          <p><%= post.content %></p>
+          <small><%= post.user.name %></small>
+
+          <div>
+            <% if (locals.user) { %>
+            <form action="/comment/create" method="POST">
+              <input
+                type="text"
+                name="content"
+                placeholder="Type Here to add comment..."
+                required
+              />
+              <input type="hidden" name="post" value="<%= post._id %>" />
+              <input type="submit" value="Add Comment" />
+            </form>
+            <% } %>
+            <div>
+              <ul>
+                <% for (comment of post.comments){ %>
+                <p>
+                  <%= comment.content %>
+                  <small><%= post.user.name %></small>
+                </p>
+                <% } %>
+              </ul>
+            </div>
+          </div>
         </li>
         <% } %>
-    </ul>
+      </ul>
+    </div>
+  </section>
 </div>

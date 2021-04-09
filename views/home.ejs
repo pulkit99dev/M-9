@@ -25,7 +25,7 @@
           <p><%= post.content %></p>
           <small><%= post.user.name %></small>
 
-          <div>
+          <div id="comment">
             <% if (locals.user) { %>
             <form action="/comment/create" method="POST">
               <input
@@ -43,7 +43,7 @@
                 <% for (comment of post.comments){ %>
                 <p>
                   <%= comment.content %>
-                  <small><%= post.user.name %></small>
+                  <small><%= comment.user.name %></small>
                 </p>
                 <% } %>
               </ul>

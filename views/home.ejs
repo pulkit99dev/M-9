@@ -20,12 +20,16 @@
     </div>
     <div>
       <ul>
-        <% for (post of posts) { %>
-        
-          <%- include('_post') -%>
-
-        <% } %>
+        <% for (post of posts) { %> <%- include('_post') -%> <% } %>
       </ul>
     </div>
   </section>
+  <div>
+    <h2>Friends</h2>
+    <% for (u of all_users) { %>
+      <a href="/user/profile/<%= u.id %>">
+        <li id="f-list"><%= u.name %></li>
+        </a>
+      <% } %>
+  </div>
 </div>

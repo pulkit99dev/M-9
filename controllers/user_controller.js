@@ -58,21 +58,14 @@
 //   return res.redirect("/");
 // };
 
-
-
-
-
-
-
-
-
-
-
 let User = require("../model/user");
 
 module.exports.user = function (req, res) {
-  return res.render("profile", {
-    title: "User Profile",
+  User.findById(req.params.id, function (err, user) {
+    return res.render("profile", {
+      title: "User Profile",
+      profile_user : user
+    });
   });
 };
 

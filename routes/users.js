@@ -9,6 +9,8 @@ let userController = require('../controllers/user_controller');
 
 router.get('/profile/:id', passport.checkAuthentication, userController.user);
 
+router.post('/update/:id',passport.checkAuthentication, userController.update);
+
 router.get('/log-in', userController.signIn);
 
 router.get('/sign-up', userController.signUp);
@@ -21,5 +23,6 @@ router.post('/createSession', passport.authenticate(
 ),userController.createSession);
 
 router.get('/sign-out', userController.destroySession);
+
 
 module.exports = router;

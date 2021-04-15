@@ -3,3 +3,14 @@
 
 #delete-button {
   color: orangered; }
+
+#home-container {
+  display: flex; }
+  #home-container #post-feed {
+    width: 70%;
+    padding: 10px; }
+  #home-container #user-list {
+    width: 30%;
+    padding: 10px;
+    border-left: 2px solid greenyellow;
+    color: red; }

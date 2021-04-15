@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="/css/home.css" />
+
+<div id="home-container">
+
+
+  <section id="post-feed" >
 <h1>Home Page for my application <%= title %></h1>
 
-<div>
-  <h2>POST</h2>
-  <section>
-    <div>
       <% if (locals.user) { %>
       <form action="/post/create" method="post">
         <textarea
@@ -17,19 +18,18 @@
         <button type="submit">Post</button>
       </form>
       <% } %>
-    </div>
-    <div>
+    
+    <div >
       <ul>
         <% for (post of posts) { %> <%- include('_post') -%> <% } %>
       </ul>
-    </div>
   </section>
-  <div>
+  <div id="user-list">
     <h2>Friends</h2>
     <% for (u of all_users) { %>
-      <a href="/user/profile/<%= u.id %>">
-        <li id="f-list"><%= u.name %></li>
-        </a>
-      <% } %>
+    <a href="/user/profile/<%= u.id %>">
+      <li id="f-list"><%= u.name %></li>
+    </a>
+    <% } %>
   </div>
 </div>

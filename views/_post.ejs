@@ -1,11 +1,11 @@
-<li>
+<li id="post-<%= post._id%>">
   <p><%= post.content %></p>
   <small><%= post.user.name %></small>
   <% if (locals.user && locals.user.id == post.user.id) {%>
-  <a id="delete-button" href="/post/destroy/<%= post.id %>">XXXXX</a>
+  <a class="delete-post-button" href="/post/destroy/<%= post.id %>">XXXXX</a>
   <% } %>
 
-  <div id="comment">
+  <div class="post-comment">
     <% if (locals.user) { %>
     <form action="/comment/create" method="POST">
       <input

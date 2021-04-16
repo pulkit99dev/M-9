@@ -1,7 +1,7 @@
-#comment {
+.post-comment {
   color: deeppink; }
 
-#delete-button {
+.delete-post-button {
   color: orangered; }
 
 #home-container {

@@ -5,9 +5,9 @@
   <a class="delete-post-button" href="/post/destroy/<%= post.id %>">XXXXX</a>
   <% } %>
 
-  <div class="post-comment">
+  <div class="post-comments">
     <% if (locals.user) { %>
-    <form action="/comment/create" method="POST">
+    <form action="/comment/create" id="post-<%= post._id %>-comments-form" method="POST">
       <input
         type="text"
         name="content"
@@ -18,10 +18,10 @@
       <input type="submit" value="Add Comment" />
     </form>
     <% } %>
-    <div>
-      <ul>
+    <div class="post-comments-list">
+      <ul id="post-comments-<%= post._id %>">
         <% for (comment of post.comments){ %>
-
+          
             <%- include('_comment') -%>
         
         <% } %>

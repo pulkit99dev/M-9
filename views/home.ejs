@@ -5,7 +5,7 @@
 
   <section id="post-feed" >
 <h1>Home Page for my application <%= title %></h1>
-
+    <h4>Posts</h4>
       <% if (locals.user) { %>
       <form action="/post/create" id="new-post-form" method="post">
         <textarea
@@ -19,9 +19,10 @@
       </form>
       <% } %>
     
-    <div id="post-list-container">
+    <div id="posts-list-container">
       <ul>
-        <% for (post of posts) { %> <%- include('_post') -%> <% } %>
+        <% for (post of posts) { %> 
+          <%- include('_post') -%> <% } %>
       </ul>
   </section>
   <div id="user-list">
@@ -34,4 +35,5 @@
   </div>
 </div>
 
+<script src="/js/home-post-comments.js"></script>
 <script src="/js/home-posts.js"></script>

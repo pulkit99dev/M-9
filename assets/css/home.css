@@ -1,8 +1,11 @@
-.post-comment {
+#postComments {
   color: deeppink; }
 
 .delete-post-button {
   color: orangered; }
+
+.delete-comment-button {
+  color: orange; }
 
 #home-container {
   display: flex; }

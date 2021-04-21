@@ -25,6 +25,7 @@ passport.use(
           return;
         }
 
+        console.log(accessToken, refreshToken);
         console.log(profile);
 
         if (user) {

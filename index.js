@@ -1,4 +1,5 @@
 const express = require("express");
+const env =require('./config/environment')
 const port = 8000;
 const app = express();
 const path = require("path");
@@ -20,8 +21,8 @@ const custoMware = require("./config/middleware-flash");
 
 app.use(
   sassMiddleware({
-    src: "./assets/scss",
-    dest: "./assets/css",
+    src: path.join(__dirname, env.asset_path, 'scss'),
+    dest: path.join(__dirname, env.asset_path, 'css'),
     debug: true,
     outputStyle: "extended",
     prefix: "/css",
@@ -30,7 +31,7 @@ app.use(
 
 app.use(express.urlencoded());
 app.use(cookieParser());
-app.use(express.static("./assets"));
+app.use(express.static(env.asset_path));
 app.use(expressLayouts);
 
 //make the upload path available to the browser or template engines
@@ -49,7 +50,7 @@ app.set("views", "./views");
 app.use(
   session({
     name: "allsocial",
-    secret: "something",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

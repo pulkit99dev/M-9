@@ -14,7 +14,7 @@ passport.use(
     {
       clientID: env.google_client_id,
       clientSecret: env.google_client_secret,
-      callbackURL: env.google_call_back,
+      callbackURL: env.google_call_back_url,
     },
 
     // when callback function is called

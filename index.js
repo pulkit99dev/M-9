@@ -1,5 +1,6 @@
 const express = require("express");
 const env =require('./config/environment')
+const logger = require('morgan')
 const port = 8000;
 const app = express();
 const path = require("path");
@@ -19,15 +20,18 @@ const sassMiddleware = require("node-sass-middleware");
 const flash = require("connect-flash");
 const custoMware = require("./config/middleware-flash");
 
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, env.asset_path, 'scss'),
-    dest: path.join(__dirname, env.asset_path, 'css'),
-    debug: true,
-    outputStyle: "extended",
-    prefix: "/css",
-  })
-);
+if(env.name == 'development'){
+  app.use(
+    sassMiddleware({
+      src: path.join(__dirname, env.asset_path, 'scss'),
+      dest: path.join(__dirname, env.asset_path, 'css'),
+      debug: true,
+      outputStyle: "extended",
+      prefix: "/css",
+    })
+  );
+}
+
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -37,11 +41,13 @@ app.use(expressLayouts);
 //make the upload path available to the browser or template engines
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
+app.use(logger(env.morgan.mode, env.morgan.options))
+
 // Extract styles & scripts from subpages
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
-app.use(express.static("./assets"));
+// app.use(express.static("./assets"));
 
 // Setting up view engine
 app.set("view engine", "ejs");

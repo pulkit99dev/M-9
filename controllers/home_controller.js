@@ -1,5 +1,6 @@
 const Post = require("../model/post");
 const User = require("../model/user");
+const Like = require('../model/like')
 
 module.exports.home = async function (req, res) {
   try {
@@ -11,6 +12,9 @@ module.exports.home = async function (req, res) {
         populate: {
           path: "user",
         },
+        populate:{
+          path:'like'
+        }
       });
     // .exec(function (err, posts) {
 

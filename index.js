@@ -1,6 +1,7 @@
 const express = require("express");
 const env =require('./config/environment')
-const logger = require('morgan')
+const logger = require('morgan');
+
 const port = 8000;
 const app = express();
 const path = require("path");
@@ -33,7 +34,7 @@ if(env.name == 'development'){
 }
 
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(env.asset_path));
 app.use(expressLayouts);
@@ -41,7 +42,7 @@ app.use(expressLayouts);
 //make the upload path available to the browser or template engines
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-app.use(logger(env.morgan.mode, env.morgan.options))
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 // Extract styles & scripts from subpages
 app.set("layout extractStyles", true);

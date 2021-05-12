@@ -29,7 +29,7 @@ const development  ={
         google_call_back: "http://localhost:8000/user/auth/google/callback",
         jwt_secret: 'codeial',
         morgan:{
-          mode:'combined',
+          mode:'dev',
           options: {
             stream: accessLogStream
           }
@@ -56,7 +56,13 @@ const production= {
         google_client_id: process.env.CODEIAL_GOOGLE_CLIENT_ID,
         google_client_secret: process.env.CODEIAL_GOOGLE_CLIENT_SECRET,
         google_call_back_url: process.env.CODEIAL_GOOGLE_CALL_BACK_URL,
-        jwt_secret: process.env.CODEIAL_JWT_SECRET
+        jwt_secret: process.env.CODEIAL_JWT_SECRET,
+        morgan:{
+          mode:'combined',
+          options: {
+            stream: accessLogStream
+          }
+        }
 }
 
 module.exports = eval(process.env.ALLSOCIAL_ENVIRONMENT)== undefined ? development : eval(process.env.NODE_ENV);

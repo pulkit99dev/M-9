@@ -4,5 +4,8 @@
   "css/home.css": "css/home-4a312b3b37.css",
   "css/layout.css": "css/layout-5efff46335.css",
   "css/profile.css": "css/profile-6b87317f67.css",
-  "css/sign-in.css": "css/sign-in-bc0549b05a.css"
+  "css/sign-in.css": "css/sign-in-bc0549b05a.css",
+  "js/home_post_comments.js": "js/home_post_comments-3c2ddb7c37.js",
+  "js/home_posts.js": "js/home_posts-b395015a93.js",
+  "js/toggle_likes.js": "js/toggle_likes-6888e2eea1.js"
 }
